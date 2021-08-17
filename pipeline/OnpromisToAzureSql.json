@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "OnpromisToAzureSql",
 	"properties": {
 		"activities": [
 			{
@@ -21,17 +21,18 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
+						"type": "AzureSqlSink",
+						"disableMetricsCollection": false
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
@@ -41,7 +42,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "dsFileBlob",
+						"referenceName": "AsureSqlDataset",
 						"type": "DatasetReference"
 					}
 				]
