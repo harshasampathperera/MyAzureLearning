@@ -11,6 +11,9 @@
 		"linkdserviceBlob_connectionString": {
 			"value": ""
 		},
+		"LinkedServAzureSql_connectionString": {
+			"value": ""
+		},
 		"containerUri": {
 			"value": ""
 		},
