@@ -1,0 +1,16 @@
+{
+	"name": "AsureSqlDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedServAzureSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "",
+			"table": "Category"
+		}
+	}
+}
