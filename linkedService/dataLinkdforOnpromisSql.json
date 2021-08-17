@@ -1,0 +1,16 @@
+{
+	"name": "dataLinkdforOnpromisSql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=.;initial catalog=JinasenaPBI_DW;user id=sa",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxNzlmYWQ1NC1mMWE2LTQ0ZTUtODU3Yi03YzRiZjFhZDMzNzQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "inrselfhostedOnpromise",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
