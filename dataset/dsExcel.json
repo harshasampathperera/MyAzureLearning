@@ -1,0 +1,22 @@
+{
+	"name": "dsExcel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkdserviceBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Animal",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Animal.xlsx",
+				"folderPath": "input",
+				"container": "fsdemo"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
