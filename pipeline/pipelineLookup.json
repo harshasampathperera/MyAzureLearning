@@ -55,7 +55,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@greater(activity('Lookup1').output.firstrow.cnt,0)",
+									"value": "@greater(activity('Lookup1').output.firstRow.count,0)",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -75,7 +75,7 @@
 											"source": {
 												"type": "SqlServerSource",
 												"sqlReaderQuery": {
-													"value": "@concat('select * from ',variables('listtable'))",
+													"value": "@concat('select * from ',item())",
 													"type": "Expression"
 												},
 												"queryTimeout": "02:00:00",
@@ -111,7 +111,13 @@
 										"outputs": [
 											{
 												"referenceName": "dsFileBlob",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"filename": {
+														"value": "@concat(item(),'.csv')",
+														"type": "Expression"
+													}
+												}
 											}
 										]
 									}
