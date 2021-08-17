@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Output",
+				"fileName": "Animal.xlsx",
+				"folderPath": "input",
 				"container": "fsdemo"
 			},
 			"columnDelimiter": ",",
