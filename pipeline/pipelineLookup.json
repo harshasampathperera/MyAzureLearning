@@ -126,7 +126,9 @@
 			"listtable": {
 				"type": "Array",
 				"defaultValue": [
-					"['CATEGORY','CATEGORY2','Employee']"
+					"CATEGORY",
+					"CATEGORY2",
+					"Employee"
 				]
 			}
 		},
