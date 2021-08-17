@@ -44,7 +44,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
-									"sqlReaderQuery": "select [Item Type] from [dbo].[ITEM TYPE] \nwhere [Item Type Code]='3'\n",
+									"sqlReaderQuery": "select [Item Type] as status from [dbo].[ITEM TYPE] \nwhere [Item Type Code]='3'\n",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
