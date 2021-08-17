@@ -1,0 +1,9 @@
+{
+	"name": "dfharshaadf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "69b0d445-b2f4-4c70-9de0-e7d938a7bf16",
+		"tenantId": "6912cb59-28a7-41be-9092-6f68bc679466"
+	}
+}
