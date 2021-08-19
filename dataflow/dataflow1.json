@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "dsfromsql",
+						"referenceName": "AsureSqlDataset",
 						"type": "DatasetReference"
 					},
 					"name": "DSSql"
@@ -38,9 +38,12 @@
 				{
 					"name": "MapDrifted1",
 					"description": "Creates an explicit mapping for each drifted column"
+				},
+				{
+					"name": "Union1"
 				}
 			],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelDS\nsource(output(\n\t\tCategory1 as string,\n\t\tCategoryName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> DSSql\nDSConditionSplit@StartC derive(DateColumn = currentDate()) ~> DerivedColumn1\nMapDrifted1 split(startsWith(AnimalName,'C'),\n\tdisjoint: true) ~> DSConditionSplit@(StartC)\nExcelDS derive(code = toString(byName('code')),\n\t\tAnimalName = toString(byName('AnimalName')),\n\t\tAge = toString(byName('Age'))) ~> MapDrifted1\nDerivedColumn1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string\n\t),\n\tpartitionFileNames:['sample.txt'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tsaveOrder: 1,\n\tpartitionBy('hash', 1)) ~> sink1"
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelDS\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> DSSql\nDSConditionSplit@StartC derive(DateColumn = currentDate()) ~> DerivedColumn1\nUnion1 split(startsWith(AnimalName,'C'),\n\tdisjoint: true) ~> DSConditionSplit@(StartC)\nExcelDS derive(code = toString(byName('code')),\n\t\tAnimalName = toString(byName('AnimalName')),\n\t\tAge = toString(byName('Age'))) ~> MapDrifted1\nMapDrifted1, DSSql union(byName: true)~> Union1\nDerivedColumn1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string\n\t),\n\tpartitionFileNames:['sample.txt'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tsaveOrder: 1,\n\tpartitionBy('hash', 1)) ~> sink1"
 		}
 	}
 }
