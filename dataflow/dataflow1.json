@@ -6,27 +6,15 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "dsfilepath",
+						"referenceName": "dsExcel",
 						"type": "DatasetReference"
 					},
 					"name": "ExcelDS"
 				}
 			],
-			"sinks": [
-				{
-					"dataset": {
-						"referenceName": "dsOutputfile",
-						"type": "DatasetReference"
-					},
-					"name": "DSsink"
-				}
-			],
-			"transformations": [
-				{
-					"name": "DerivedDataSet"
-				}
-			],
-			"script": "source(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelDS\nExcelDS derive(WriteDate = currentDate()) ~> DerivedDataSet\nDerivedDataSet sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tWriteDate\n\t)) ~> DSsink"
+			"sinks": [],
+			"transformations": [],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelDS"
 		}
 	}
 }
