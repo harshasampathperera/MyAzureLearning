@@ -16,6 +16,10 @@
 				"name": "CategoryName",
 				"type": "nvarchar"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CATEGORY"
+		}
 	}
 }
