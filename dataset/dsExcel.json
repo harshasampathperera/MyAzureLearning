@@ -8,10 +8,9 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
-			"sheetName": "Animal",
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Animal.xlsx",
+				"fileName": "Animal1.xlsx",
 				"folderPath": "input",
 				"container": "fsdemo"
 			},
