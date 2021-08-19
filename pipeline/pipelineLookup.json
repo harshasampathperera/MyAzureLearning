@@ -111,13 +111,7 @@
 										"outputs": [
 											{
 												"referenceName": "dsFileBlob",
-												"type": "DatasetReference",
-												"parameters": {
-													"filename": {
-														"value": "@concat(item(),'.csv')",
-														"type": "Expression"
-													}
-												}
+												"type": "DatasetReference"
 											}
 										]
 									}
