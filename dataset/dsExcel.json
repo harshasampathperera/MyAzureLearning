@@ -15,7 +15,7 @@
 				"folderPath": "input",
 				"container": "fsdemo"
 			},
-			"firstRowAsHeader": false
+			"firstRowAsHeader": true
 		},
 		"schema": []
 	}
