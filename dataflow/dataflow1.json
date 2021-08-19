@@ -26,7 +26,7 @@
 					"name": "DerivedDataSet"
 				}
 			],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelDS\nExcelDS derive(WriteDate = currentDate(),\n\t\tcolumn2 = ERROR_FUNCTION('')) ~> DerivedDataSet\nDerivedDataSet sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> DSsink"
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> ExcelDS\nExcelDS derive(WriteDate = currentDate(),\n\t\tcolumn2 = ERROR_FUNCTION('')) ~> DerivedDataSet\nDerivedDataSet sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tWriteDate,\n\t\tcolumn2\n\t)) ~> DSsink"
 		}
 	}
 }
